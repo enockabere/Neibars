@@ -40,6 +40,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'bootstrap5',
     'accounts',
+    'profiles',
     'crispy_forms',
 ]
 
@@ -72,8 +73,9 @@ TEMPLATES = [
 ]
 
 WSGI_APPLICATION = 'Neibars.wsgi.application'
+#on Production change email back console to smtp
 
-
+EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
 EMAIL_USE_TLS = config('EMAIL_USE_TLS')
 EMAIL_HOST = config('EMAIL_HOST')
 EMAIL_PORT = config('EMAIL_PORT')
