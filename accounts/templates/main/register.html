@@ -1,0 +1,33 @@
+
+{% extends 'base.html' %}
+{% load bootstrap5 %}
+{% load static %}
+{% block content %}
+
+{% load crispy_forms_tags %}
+
+<section id="cover" class="min-vh-100"
+	style="background: #222 url('https://unsplash.it/1920/1080/?random') center center no-repeat;;">
+	<div id="cover-caption">
+		<div class="container">
+			<div class="row text-white">
+				<div class="col-xl-5 col-lg-6 col-md-8 col-sm-10 mx-auto text-center form p-4">
+					<h4 class="display-4 py-2 text-truncate"><span class="br">Insta</span>Page <span class="norm">Sign
+							Up</span></h4>
+					<div class="px-2">
+						<form method="post" class="justify-content-center" id="mafom">
+							<div class="form-group">
+								{% csrf_token %}
+								{{ register_form|crispy }}
+							</div>
+							<button type="submit" class="btn btn-primary" id="sign">Sign Up</button>
+							<p id="sign2" class="text-center">If you already have an account, <a href="/login">login</a>
+								instead.
+						</form>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</section>
+{% endblock %}
