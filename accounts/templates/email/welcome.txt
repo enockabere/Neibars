@@ -1,0 +1,3 @@
+Hello {{name}}
+
+Welcome to the Neibars You will find the most exciting insights about your hood.
