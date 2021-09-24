@@ -1,0 +1,17 @@
+/* fonts
+font-family: 'IBM Plex Serif', serif; headings
+font-family: 'Work Sans', sans-serif; normal
+ */
+.br{
+    color: #ff5f13;
+}
+#hyperBtn{
+    background-color: #ff5f13;
+    border-color: #ff5f13;
+    color: #fff;
+    font-family: 'Work Sans', sans-serif
+}
+#hyperBtn:hover{
+    background-color: #a43c1c;
+    border-color: #a43c1c;
+}

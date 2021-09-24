@@ -1,0 +1,11 @@
+#logo{
+    border-radius: 50%;
+    width: 180px;
+    padding: 10px;
+}
+#sign{
+    font-family: 'IBM Plex Serif', serif;
+}
+#sign2{
+    font-family: 'Work Sans', sans-serif;
+}
