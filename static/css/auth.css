@@ -9,3 +9,12 @@
 #sign2{
     font-family: 'Work Sans', sans-serif;
 }
+#cover{
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+    
+}
+#assaBtn{
+    float: right;
+}
