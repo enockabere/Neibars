@@ -26,3 +26,26 @@ font-family: 'Work Sans', sans-serif; normal
     background-color: #2d364b;
     border-color: #2d364b;
 }
+#ghostBtn{
+    border: none;
+    border-radius: 1.5rem;
+    padding: 2%;
+    width: 60%;
+    background: #f8f9fa;
+    font-weight: bold;
+    color: #383d41; 
+    cursor: pointer;
+}
+.btnRegister{
+    border: none;
+    border-radius: 1.5rem;
+    padding: 2%;
+    background: #ff5f13;
+    color: #fff;
+    font-weight: 600;
+    width: 50%;
+    cursor: pointer;
+}
+.btnRegister:hover{
+    background: #a43c1c;
+}

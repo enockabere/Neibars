@@ -1,38 +1,49 @@
-{% extends 'base.html' %}
+{% extends 'pro.html' %}
 {% load bootstrap5 %}
 {% load static %}
 {% block content %}
 
 {% load crispy_forms_tags %}
 
-<section id="cover" class="min-vh-100"
-	style="background: #222 url('../../../static/img/10.jpg');">
-    <div class="container">
+<section class="create">
+    <div class="container register">
         <div class="row">
-            <div class="col-md-12">
-                <a type="button" href="{% url 'admin:index' %}" id="assaBtn" class="btn btn-outline-info m-2"><i class="fas fa-user-circle"></i> Admin</a>
+            <div class="col-md-3 register-left">
+                <img src="https://image.ibb.co/n7oTvU/logo_white.png" alt=""/>
+                <h3>Welcome</h3>
+                <p>You are 30 seconds away from creating your own account!</p>
+                <input type="submit" id="ghostBtn" name="" value="Logout"/><br/>
+            </div>
+            <div class="col-md-9 register-right">
+                <img  class="img-fluid" src="../../../static/img/1.png"  id="logo" alt="logo">
+                <div class="tab-content" id="myTabContent">
+                    <div class="tab-pane fade show active" id="home" role="tabpanel" aria-labelledby="home-tab">
+                        <h3 class="register-heading"><span class="br">Fix Yourself</span> in a Clan</h3>
+                        <div class="row register-form">
+                            <div class="col-md-6">
+                                <div class="mb-3">
+                                    <input required type="text" class="form-control" placeholder="Hood Name *" name="hood" />
+                                </div>
+                                <div class="mb-3">
+                                    <input required type="text" class="form-control" placeholder="Location *" name="location" />
+                                </div>
+                                <div class="mb-3">
+                                    <input required class="form-control" type="file" name="image">
+                                    <div class="form-text">Upload your profile photo</div>
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="mb-3">
+                                    <textarea required class="form-control" placeholder="Enter Bio...*" name="bio" rows="6"></textarea>
+                                </div>
+                                <input type="submit" class="btnRegister"  value="Submit"/>
+                            </div>
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
+
     </div>
-	<div id="cover-caption">
-		<div class="container">
-			<div class="row text-white">
-				<div class="col-xl-5 col-lg-6 col-md-8 col-sm-10 mx-auto text-center form p-4">
-                    <img id="logo" class="img-fluid" src="../../../static/img/1.png" alt="logo">
-					<h4 id= "sign" class="display-4 py-2 text-truncate"><span class="br">Sign</span> In </h4>
-					<div class="px-2">
-						<form method="post" class="justify-content-center" id="mafom">
-							<div class="form-group">
-								{% csrf_token %}
-								{{ login_form|crispy }}
-							</div>
-							<button type="submit" class="btn btn-primary m-4" id="hyperBtn">Login</button>
-							<p id="sign2" class="text-center">Don't have an account?, <a href="/register" style="color: #ff5f13;">Create an account</a>.
-						</form>
-					</div>
-				</div>
-			</div>
-		</div>
-	</div>
 </section>
 {% endblock %}

@@ -21,7 +21,7 @@
 								{{ register_form|crispy }}
 							</div>
 							<button type="submit" class="btn btn-primary m-4" id="hyperBtn">Sign Up</button>
-							<p id="sign2" class="text-center">If you already have an account, <a href="/login" style="color: #ff5f13;">login</a>
+							<p id="sign2" class="text-center">If you already have an account, <a href="{% url 'login' %}" style="color: #ff5f13;">login</a>
 								instead.
 						</form>
 					</div>
