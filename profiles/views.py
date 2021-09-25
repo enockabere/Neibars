@@ -5,3 +5,5 @@ def create_account(request):
     return render(request,template_name="main/create.html")
 def dashboard(request):
     return render(request,template_name="main/dashboard.html")
+def personal(request):
+    return render(request,template_name="main/profile.html")
