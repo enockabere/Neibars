@@ -12,6 +12,9 @@ https://docs.djangoproject.com/en/3.2/ref/settings/
 
 from pathlib import Path
 import os
+import cloudinary
+import cloudinary.uploader
+import cloudinary.api
 from decouple import config
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -42,6 +45,7 @@ INSTALLED_APPS = [
     'accounts',
     'profiles',
     'crispy_forms',
+    'cloudinary',
 ]
 
 MIDDLEWARE = [
@@ -71,6 +75,11 @@ TEMPLATES = [
         },
     },
 ]
+cloudinary.config( 
+  cloud_name = "enock", 
+  api_key = "131559831386722", 
+  api_secret = "fDQuLwrK6ExBtidSqxme_ZzHaxY" 
+)
 
 WSGI_APPLICATION = 'Neibars.wsgi.application'
 #on Production change email back console to smtp
@@ -87,8 +96,10 @@ EMAIL_HOST_PASSWORD = config('EMAIL_HOST_PASSWORD')
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
+        'ENGINE': 'django.db.backends.postgresql',
+        'NAME': 'hood',
+        'USER': 'hypertext',
+        'PASSWORD': 'assassin',
     }
 }
 
