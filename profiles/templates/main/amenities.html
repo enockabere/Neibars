@@ -27,19 +27,32 @@
               <div class="users">
                 <h6>Amenities</h6>
               </div>
+              {% if amen %}
+              {% for amen in amen %}
               <div class="jumbotron">
                 <div class="hood_post">
                   <div class="data">
-                    <p>Police</p>
+                    <p>{{amen.types}}</p>
                   </div>
                   <p>
-                    To confirm if the image was uploaded successfully,
-                    click on the just added image, and click on the link there.
+                    {{amen.info}}
                   </p>
                   <p style="display: inline-block;padding: 20px;"><i class="fas fa-clock" style="color: #ff5f13;"></i>
-                    Contact : 07888778877</p>
+                    Contact : {{amen.contacts}}</p>
                 </div>
               </div>
+              {% endfor %}
+              {% else %}
+              <div class="jumbotron">
+                <div class="hood_post">
+                 
+                  <p>
+                    There are no amenities in this hood
+                  </p>
+                  
+                </div>
+              </div>
+              {% endif %}
             </div>
           </div>
         </div>
@@ -53,9 +66,6 @@
               </div>
               <div class="data p-2">
                 <p>
-                    To confirm if the image was uploaded successfully, 
-                    click on the just added image, and click on the link there.
-
                     Head Over to your account profile to create or add an amenity to the hood.
                 </p>
               </div>

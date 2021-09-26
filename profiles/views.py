@@ -25,7 +25,10 @@ def sidebar(request):
     return render(request,"sidebar.html",ctx)
 @login_required(login_url='login')
 def dashboard(request):
-    return render(request,template_name="main/dashboard.html")
+    person=request.user.pk
+    profile = Profile.objects.filter(user=person).all()
+    ctx = {"profile":profile}
+    return render(request,"main/dashboard.html",ctx)
 @login_required(login_url='login')
 def personal(request):
     person=request.user.pk
@@ -33,13 +36,20 @@ def personal(request):
     biz = Business.objects.filter(owner=person).all()
     ctx = {"profile":profile,"biz":biz}
     return render(request,"main/profile.html",ctx)
+@login_required(login_url='login')
 def business(request):
+    person=request.user.pk
+    profile = Profile.objects.filter(user=person).all()
+    ctx = {"profile":profile}
     return render(request,template_name="main/business.html")
 def b_search(request):
     return render(request,template_name="main/search.html")
+@login_required(login_url='login')
 def amenities(request):
+    person=request.user.pk
     amen = Amenity.objects.all()
-    ctx = {"amen":amen}
+    profile = Profile.objects.filter(user=person).all()
+    ctx = {"amen":amen,"profile":profile,}
     return render(request,"main/amenities.html",ctx)
 def create_biz(request):
     if request.method == 'POST':

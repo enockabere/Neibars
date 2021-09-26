@@ -50,19 +50,11 @@
           <li class="header-menu">
             <span>General</span>
           </li>
-          <li class="sidebar-dropdown">
-            <a href="#">
+          <li>
+            <a href="{% url 'dash' %}">
               <i class="fa fa-tachometer-alt"></i>
               <span>Dashboard</span>
             </a>
-            <div class="sidebar-submenu">
-              <ul>
-                <li>
-                  <a href="{% url 'personal' %}"> Profile
-                  </a>
-                </li>
-              </ul>
-            </div>
           </li>
           <li>
             <a href="{% url 'business' %}">
@@ -75,6 +67,20 @@
               <i class="fa fa-calendar"></i>
               <span>Amenities</span>
             </a>
+          </li>
+          <li class="sidebar-dropdown">
+            <a href="#">
+              <i class="fa fa-tachometer-alt"></i>
+              <span>More..</span>
+            </a>
+            <div class="sidebar-submenu">
+              <ul>
+                <li>
+                  <a href="{% url 'personal' %}">{{user}} Profile
+                  </a>
+                </li>
+              </ul>
+            </div>
           </li>
       </div>
       <!-- sidebar-menu  -->
