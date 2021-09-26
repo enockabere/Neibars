@@ -119,13 +119,24 @@
           <div class="col-md-12">
             <div id="jumbos">
               <div class="users">
-                <h6>Profile Bio</h6>
+                <h6>Profile Information</h6>
               </div>
+              {% for profile in profile %}
               <div class="data p-2">
+                <h6>Hood Name</h6>
                 <p>
-                    To confirm if the image was uploaded successfully, click on the just added image, and click on the link there.
+                    {{profile.hood}}
+                </p><hr>
+                <h6>Bio</h6>
+                <p>
+                    {{profile.bio}}
+                </p><hr>
+                <h6>My Location</h6>
+                <p>
+                  {{profile.location}}
                 </p>
               </div>
+              {% endfor %}
             </div>
           </div>
         </div>

@@ -15,11 +15,13 @@
         </div>
       </div>
       <div class="sidebar-header">
+        {% for profile in profile %}
         <div class="user-pic">
           <img class="img-responsive img-rounded"
-            src="https://raw.githubusercontent.com/azouaoui-med/pro-sidebar-template/gh-pages/src/img/user.jpg"
+          src="https://res.cloudinary.com/enock/{{profile.image}}"
             alt="User picture">
         </div>
+        {% endfor %}
         <div class="user-info">
           <span class="user-name">{{user.username}}
           </span>
@@ -74,7 +76,6 @@
               <span>Amenities</span>
             </a>
           </li>
-        </ul>
       </div>
       <!-- sidebar-menu  -->
     </div>

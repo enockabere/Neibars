@@ -18,8 +18,8 @@ class Hood(models.Model):
 class Business(models.Model):
     name = models.CharField(blank=True,max_length=300)
     image = CloudinaryField('image', blank=True)
+    location = models.CharField(blank=True, max_length=300)
     info = models.TextField(blank=True)
-    hood = models.ForeignKey(Hood,on_delete=models.CASCADE,blank=True,related_name="business_hood")
     owner =models.ForeignKey(User,on_delete=models.CASCADE,blank=True,related_name='owner')
     def __str__(self):
         return str(self.name)

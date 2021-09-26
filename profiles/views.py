@@ -19,12 +19,18 @@ def create_account(request):
     return render(request,template_name="main/create.html")
 @login_required(login_url='login')
 def sidebar(request):
-    return render(request,template_name="main/dashboard.html")
+    person=request.user.pk
+    profile = Profile.objects.filter(user=person).all()
+    ctx = {"profile":profile}
+    return render(request,"sidebar.html",ctx)
 @login_required(login_url='login')
 def dashboard(request):
-    return render(request,template_name="sidebar.html")
+    return render(request,template_name="main/dashboard.html")
 def personal(request):
-    return render(request,template_name="main/profile.html")
+    person=request.user.pk
+    profile = Profile.objects.filter(user=person).all()
+    ctx = {"profile":profile}
+    return render(request,"main/profile.html",ctx)
 def business(request):
     return render(request,template_name="main/business.html")
 def b_search(request):
