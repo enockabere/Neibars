@@ -1,6 +1,6 @@
 from django.shortcuts import render,redirect
 from django.contrib.auth.decorators import login_required
-from . models import Profile,Business
+from . models import Profile,Business,Amenity
 
 # Create your views here.
 def create_account(request):
@@ -26,6 +26,7 @@ def sidebar(request):
 @login_required(login_url='login')
 def dashboard(request):
     return render(request,template_name="main/dashboard.html")
+@login_required(login_url='login')
 def personal(request):
     person=request.user.pk
     profile = Profile.objects.filter(user=person).all()
@@ -47,5 +48,15 @@ def create_biz(request):
             location = data['b-location'],
             info = data['b-info'],
             owner = request.user
+        )
+    return redirect('personal')
+def create_amenity(request):
+    if request.method == 'POST':
+        data = request.POST
+        amenity = Amenity.objects.create(
+            types = data['a-type'],
+            contacts = data['a-contact'],
+            info = data['a-info'],
+            user = request.user
         )
     return redirect('personal')

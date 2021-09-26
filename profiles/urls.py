@@ -10,4 +10,5 @@ urlpatterns = [
     path('amenities', views.amenities,name="amenities"),
     path('sidebar', views.sidebar,name="sidebar"),
     path('addbiz', views.create_biz,name="addbiz"),
+    path('addamenity', views.create_amenity,name="addamenity"),
 ]

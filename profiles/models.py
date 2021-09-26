@@ -20,9 +20,15 @@ class Business(models.Model):
     image = CloudinaryField('image', blank=True)
     location = models.CharField(blank=True, max_length=300)
     info = models.TextField(blank=True)
+    date = models.DateTimeField(auto_now_add=True)
     owner =models.ForeignKey(User,on_delete=models.CASCADE,blank=True,related_name='owner')
     def __str__(self):
         return str(self.name)
+class Amenity(models.Model):
+    types = models.CharField(blank=True, max_length=30)
+    contacts = models.CharField(blank=True,max_length=30)
+    info = models.TextField(blank=True)
+    user = models.ForeignKey(User,on_delete=models.CASCADE,related_name='amenities')
 class Post(models.Model):
     image = CloudinaryField('image',blank=True)
     description = models.TextField(blank=True)
