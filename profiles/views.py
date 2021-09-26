@@ -1,4 +1,5 @@
 from django.shortcuts import render,redirect
+from django.contrib.auth.decorators import login_required
 from . models import Profile
 
 # Create your views here.
@@ -14,8 +15,9 @@ def create_account(request):
             image =image,
             user = request.user
         )
-        return redirect('dash')
+        return redirect('login')
     return render(request,template_name="main/create.html")
+@login_required(login_url='login')
 def dashboard(request):
     return render(request,template_name="main/dashboard.html")
 def personal(request):
