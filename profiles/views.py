@@ -1,6 +1,6 @@
 from django.shortcuts import render,redirect
 from django.contrib.auth.decorators import login_required
-from . models import Profile,Business,Amenity
+from . models import Profile,Business,Amenity,Post
 
 # Create your views here.
 def create_account(request):
@@ -25,9 +25,20 @@ def sidebar(request):
     return render(request,"sidebar.html",ctx)
 @login_required(login_url='login')
 def dashboard(request):
+    if request.method == 'POST':
+        data = request.POST
+        image = request.FILES.get('post_pic')
+        
+        post = Post.objects.create(
+            image = image,
+            description = data['post_data'],
+            user = request.user,
+        )
+        return redirect('dash')
     person=request.user.pk
+    posts = Post.objects.all()
     profile = Profile.objects.filter(user=person).all()
-    ctx = {"profile":profile}
+    ctx = {"profile":profile,"posts":posts}
     return render(request,"main/dashboard.html",ctx)
 @login_required(login_url='login')
 def personal(request):
