@@ -9,3 +9,5 @@ def personal(request):
     return render(request,template_name="main/profile.html")
 def business(request):
     return render(request,template_name="main/business.html")
+def b_search(request):
+    return render(request,template_name="main/search.html")
