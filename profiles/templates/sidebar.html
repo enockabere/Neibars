@@ -9,7 +9,7 @@
   <nav id="sidebar" class="sidebar-wrapper">
     <div class="sidebar-content">
       <div class="sidebar-brand">
-        <a href="#">Neibars</a>
+        <a href="{% url 'dash' %}">Neibars</a>
         <div id="close-sidebar">
           <i class="fas fa-times"></i>
         </div>
@@ -58,20 +58,20 @@
             <div class="sidebar-submenu">
               <ul>
                 <li>
-                  <a href="#"> Profile
+                  <a href="{% url 'personal' %}"> Profile
                   </a>
                 </li>
               </ul>
             </div>
           </li>
           <li>
-            <a href="#">
+            <a href="{% url 'business' %}">
               <i class="fa fa-book"></i>
               <span>Business</span>
             </a>
           </li>
           <li>
-            <a href="#">
+            <a href="{% url 'amenities' %}">
               <i class="fa fa-calendar"></i>
               <span>Amenities</span>
             </a>
@@ -82,18 +82,6 @@
     </div>
     <!-- sidebar-content  -->
     <div class="sidebar-footer">
-      <a href="#">
-        <i class="fa fa-bell"></i>
-        <span class="badge badge-pill badge-warning notification">3</span>
-      </a>
-      <a href="#">
-        <i class="fa fa-envelope"></i>
-        <span class="badge badge-pill badge-success notification">7</span>
-      </a>
-      <a href="#">
-        <i class="fa fa-cog"></i>
-        <span class="badge-sonar"></span>
-      </a>
       <a href="#">
         <i class="fa fa-power-off"></i>
       </a>
