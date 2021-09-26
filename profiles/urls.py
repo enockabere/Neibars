@@ -9,4 +9,5 @@ urlpatterns = [
     path('search', views.b_search,name="search"),
     path('amenities', views.amenities,name="amenities"),
     path('sidebar', views.sidebar,name="sidebar"),
+    path('addbiz', views.create_biz,name="addbiz"),
 ]

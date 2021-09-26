@@ -1,6 +1,6 @@
 from django.shortcuts import render,redirect
 from django.contrib.auth.decorators import login_required
-from . models import Profile
+from . models import Profile,Business
 
 # Create your views here.
 def create_account(request):
@@ -37,3 +37,15 @@ def b_search(request):
     return render(request,template_name="main/search.html")
 def amenities(request):
     return render(request,template_name="main/amenities.html")
+def create_biz(request):
+    if request.method == 'POST':
+        data = request.POST
+        image = request.FILES.get('b-pic')
+        biz = Business.objects.create(
+            name = data['b-name'],
+            image = image,
+            location = data['b-location'],
+            info = data['b-info'],
+            owner = request.user
+        )
+    return redirect('personal')
