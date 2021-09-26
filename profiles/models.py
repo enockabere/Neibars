@@ -12,7 +12,7 @@ class Profile(models.Model):
     image = CloudinaryField('image', blank=True)
     user = models.OneToOneField(User,on_delete=models.CASCADE,blank=True,related_name='profile_user',)
     def __str__(self):
-        return str(self.user)
+        return str(self.user) or ''
 class Hood(models.Model):
     hoods = models.ForeignKey(Profile,on_delete=models.CASCADE,blank=True,related_name='allhood')
 class Business(models.Model):
@@ -23,7 +23,7 @@ class Business(models.Model):
     date = models.DateTimeField(auto_now_add=True)
     owner =models.ForeignKey(User,on_delete=models.CASCADE,blank=True,related_name='owner')
     def __str__(self):
-        return str(self.name)
+        return self.name or ''
 class Amenity(models.Model):
     types = models.CharField(blank=True, max_length=30)
     contacts = models.CharField(blank=True,max_length=30)

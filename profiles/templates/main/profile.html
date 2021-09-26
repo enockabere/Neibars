@@ -61,7 +61,8 @@
                 </h2>
                 <div id="collapseThree" class="accordion-collapse collapse" aria-labelledby="headingThree" data-bs-parent="#accordionExample">
                   <div class="accordion-body">
-                    <form action="">
+                    <form action="{% url 'addamenity' %}" method="POST" enctype="multipart/form-data">
+                      {% csrf_token %}
                         <div class="mb-3">
                             <select class="form-select" name="a-type" aria-label="Default select example">
                                 <option selected>Select Type</option>
@@ -95,22 +96,26 @@
               <div class="users">
                 <h6>My Updates</h6>
               </div>
+              <!-- {% for  biz in biz %}
               <div class="jumbotron">
                 <div class="hood_post">
                   <div class="data">
                     <img src="../../../static/img/1.png" class="img-fluid" alt="" srcset="">
-                    <p>Enock Abere</p>
+                    <p>{{biz.owner}}</p>
                   </div>
                   <p>
-                    To confirm if the image was uploaded successfully,
-                    click on the just added image, and click on the link there.
+                    {{biz.info}}
                   </p>
-                  <img src="../../../static/img/12.jpg" class="img-fluid" alt="">
-                  <p style="display: inline-block;"><i class="far fa-heart" style="color: #ff5f13;"></i> 20 likes</p>
+                  <img src="https://res.cloudinary.com/enock/{{biz.image}}" class="img-fluid" alt="business image">
                   <p style="display: inline-block;padding: 20px;"><i class="fas fa-clock" style="color: #ff5f13;"></i>
-                    Posted on: 20th</p>
+                    Business Name: {{biz.name}}</p>
+                  <p style="display: inline-block;padding: 20px;"><i class="fas fa-clock" style="color: #ff5f13;"></i>
+                    Location: {{biz.location}}</p>
+                    <p style="display: inline-block;padding: 20px;"><i class="fas fa-clock" style="color: #ff5f13;"></i>
+                        Posted on: {{biz.date}}</p>
                 </div>
               </div>
+              {% endfor %} -->
             </div>
           </div>
         </div>
@@ -147,14 +152,18 @@
               <div class="users">
                 <h6>My Businesses</h6>
               </div>
+              {% if biz %}
+                {% for biz in biz %}
+                  <div class="data p-3">
+                    <p>{{biz.name}}</p>
+                    <strong style="float: right;">{{biz.location}}</strong>
+                  </div>
+                {% endfor %}
+              {% else %}
               <div class="data p-3">
-                <p>Police</p>
-                <strong style="float: right;">079999999</strong>
+                <p>You have no Businesses</p>
               </div>
-              <div class="data p-3">
-                <p>Hospital</p>
-                <strong style="float: right;">079999999</strong>
-              </div>
+              {% endif %}
             </div>
           </div>
         </div>

@@ -30,18 +30,21 @@ def dashboard(request):
 def personal(request):
     person=request.user.pk
     profile = Profile.objects.filter(user=person).all()
-    ctx = {"profile":profile}
+    biz = Business.objects.filter(owner=person).all()
+    ctx = {"profile":profile,"biz":biz}
     return render(request,"main/profile.html",ctx)
 def business(request):
     return render(request,template_name="main/business.html")
 def b_search(request):
     return render(request,template_name="main/search.html")
 def amenities(request):
-    return render(request,template_name="main/amenities.html")
+    amen = Amenity.objects.all()
+    ctx = {"amen":amen}
+    return render(request,"main/amenities.html",ctx)
 def create_biz(request):
     if request.method == 'POST':
         data = request.POST
-        image = request.FILES.get('b-pic')
+        image = request.FILES.get('b_pic')
         biz = Business.objects.create(
             name = data['b-name'],
             image = image,
