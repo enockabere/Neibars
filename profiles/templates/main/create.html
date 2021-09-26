@@ -17,26 +17,29 @@
                 <div class="tab-content" id="myTabContent">
                     <div class="tab-pane fade show active" id="home" role="tabpanel" aria-labelledby="home-tab">
                         <h3 class="register-heading"><span class="br">Fix Yourself</span> in a Clan</h3>
+                        <form action="{% url 'create_pro' %}" method="POST" enctype="multipart/form-data">
+                            {% csrf_token %}
                         <div class="row register-form">
-                            <div class="col-md-6">
-                                <div class="mb-3">
-                                    <input required type="text" class="form-control" placeholder="Hood Name *" name="hood" />
+                                <div class="col-md-6">
+                                    <div class="mb-3">
+                                        <input required type="text" class="form-control" placeholder="Hood Name *" name="hood" />
+                                    </div>
+                                    <div class="mb-3">
+                                        <input required type="text" class="form-control" placeholder="Location *" name="location" />
+                                    </div>
+                                    <div class="mb-3">
+                                        <input required class="form-control" type="file" name="image">
+                                        <div class="form-text">Upload your profile photo</div>
+                                    </div>
                                 </div>
-                                <div class="mb-3">
-                                    <input required type="text" class="form-control" placeholder="Location *" name="location" />
+                                <div class="col-md-6">
+                                    <div class="mb-3">
+                                        <textarea required class="form-control" placeholder="Enter Bio...*" name="bio" rows="6"></textarea>
+                                    </div>
+                                    <input type="submit" class="btnRegister"  value="Submit"/>
                                 </div>
-                                <div class="mb-3">
-                                    <input required class="form-control" type="file" name="image">
-                                    <div class="form-text">Upload your profile photo</div>
-                                </div>
-                            </div>
-                            <div class="col-md-6">
-                                <div class="mb-3">
-                                    <textarea required class="form-control" placeholder="Enter Bio...*" name="bio" rows="6"></textarea>
-                                </div>
-                                <input type="submit" class="btnRegister"  value="Submit"/>
-                            </div>
                         </div>
+                    </form>
                     </div>
                 </div>
             </div>

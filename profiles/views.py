@@ -1,7 +1,20 @@
-from django.shortcuts import render
+from django.shortcuts import render,redirect
+from . models import Profile
 
 # Create your views here.
 def create_account(request):
+    if request.method == 'POST':
+        data = request.POST
+        image = request.FILES.get('image')
+        
+        account = Profile.objects.create(
+            hood = data['hood'],
+            location = data['location'],
+            bio = data['bio'],
+            image =image,
+            user = request.user
+        )
+        return redirect('dash')
     return render(request,template_name="main/create.html")
 def dashboard(request):
     return render(request,template_name="main/dashboard.html")

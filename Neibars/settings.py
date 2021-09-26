@@ -82,9 +82,9 @@ cloudinary.config(
 )
 
 WSGI_APPLICATION = 'Neibars.wsgi.application'
-#on Production change email back console to smtp
+#on Production change email from console to smtp
 
-EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
+EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
 EMAIL_USE_TLS = config('EMAIL_USE_TLS')
 EMAIL_HOST = config('EMAIL_HOST')
 EMAIL_PORT = config('EMAIL_PORT')
