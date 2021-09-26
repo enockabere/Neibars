@@ -18,8 +18,11 @@ def create_account(request):
         return redirect('login')
     return render(request,template_name="main/create.html")
 @login_required(login_url='login')
-def dashboard(request):
+def sidebar(request):
     return render(request,template_name="main/dashboard.html")
+@login_required(login_url='login')
+def dashboard(request):
+    return render(request,template_name="sidebar.html")
 def personal(request):
     return render(request,template_name="main/profile.html")
 def business(request):
