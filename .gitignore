@@ -1,2 +1,6 @@
 virtual/
 .env
+.vscode/
+accounts/__pycache__/
+Neibars/__pycache__/
+profiles/__pycache__/
