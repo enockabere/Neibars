@@ -11,3 +11,5 @@ def business(request):
     return render(request,template_name="main/business.html")
 def b_search(request):
     return render(request,template_name="main/search.html")
+def amenities(request):
+    return render(request,template_name="main/amenities.html")
