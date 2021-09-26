@@ -114,12 +114,28 @@
                       {{post.description}}
                     </p>
                     <img src="../../../static/img/12.jpg" class="img-fluid" alt="">
-                    <p style="display: inline-block;"><i class="far fa-heart" style="color: #ff5f13;"></i> 20 likes</p>
+                    
+                    <form action="{% url 'like_post' %}" method="POST">
+                      {% csrf_token %}
+                      <input type="hidden" name="post_id" value="{{post.id}}">
+                      {% if user not in post.liked.all %}
+                      <button type="submit" class="btn btn-outline-info  mt-2"> Like</button>
+                      {% else %}
+                      <button type="submit" class="btn btn-outline-danger  mt-2"> Unlike</button>
+                      {% endif %}
+                      <strong>{{post.liked.all.count}} likes</strong>
+                  </form>
                     <p style="display: inline-block;padding: 20px;"><i class="fas fa-clock" style="color: #ff5f13;"></i>
                       Posted on: {{post.post_date}}</p>
                   </div>
                   {% endfor %}
                 {% else %}
+                <div class="hood_post">
+                  <p>
+                    There are no posts currently
+                  </p>
+                  
+                </div>
                 {% endif %}
               </div>
             </div>

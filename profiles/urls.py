@@ -11,4 +11,5 @@ urlpatterns = [
     path('sidebar', views.sidebar,name="sidebar"),
     path('addbiz', views.create_biz,name="addbiz"),
     path('addamenity', views.create_amenity,name="addamenity"),
+    path('like/',views.like_post,name="like_post" ),
 ]
