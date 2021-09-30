@@ -8,7 +8,7 @@ A web application that allows you to be in the loop about everything happening i
 ![views](static/img/2.png)
 
 ### Live link
-Visit the application on https://enock-coming-soon.com/
+Visit the application on https://neibars.herokuapp.com/
 ### Setup & Run Instructions
 - Create and activate a virtual environment
 - Install the dependencies listed in the requirements.txt
